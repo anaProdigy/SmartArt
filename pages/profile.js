@@ -1,10 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Layout from '../components/Layout';
 import { useSessionId } from '/utils/session';
-import UserLayout from '@/components/User/UserLayout';
-import DrawerAppBar from '@/components/User/DrawerAppBar';
+
 
 
 import {
@@ -64,8 +62,6 @@ const userProfilePage = () => {
   // };
 
   return (
-    // <Layout>
-    // <DrawerAppBar>
     <Paper elevation={10} style={{
       padding: '1rem',
       borderRadius: '16px',
@@ -143,9 +139,6 @@ const userProfilePage = () => {
         Edit Profile
       </Button>
     </Paper>
-
-    // </DrawerAppBar>
-
   );
 };
 

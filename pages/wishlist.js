@@ -1,18 +1,12 @@
 import React from 'react';
 import prisma from 'utils/prisma';
-import Layout from '../components/Layout';
-import UserLayout from '@/components/User/UserLayout';
 import Wishlist from '../components/Wishlist';
 
 
 export default function WishlistPage({ serializedWishlistData }) {
 
   return (
-    // <Layout>
-      // <UserLayout>
         <Wishlist serializedWishlistData={serializedWishlistData} />
-      // </UserLayout>
-    // </Layout>
   );
 }
 

@@ -99,7 +99,7 @@ const Wishlist = ({ serializedWishlistData: defaultWishlistData }) => {
           </Link>
         </Container>
       ) : (
-        <div className="px-[50px] md:px-[100px] lg:px-[[150px] ">
+        <div className="px-[30px] md:px-[100px] lg:px-[[150px] ">
           <Typography variant="h4" gutterBottom sx={{ fontSize: ['1.2rem', '1.5rem', '1.8rem', '2rem'], paddingTop: "30px", paddingBottom: "30px" }}>
             <FavoriteIcon style={{ fontSize: '3rem', color: '#5a716e', paddingRight: '10px' }} />
             Your Wishlist
@@ -113,20 +113,24 @@ const Wishlist = ({ serializedWishlistData: defaultWishlistData }) => {
               onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
             >
               <div className=" flex flex-col md:flex-row items-center"> 
+
               <Link href={`/products/${item.product.id}`}>
                 <img className=" w-[109px] h-[134px]" src={`/uploads/${item.product.image}`} alt={item.product.name} />
               </Link>
 
                 <div className="text-sm text-center md:text-md lg:text-lg ml-[10px] mr-[10px] md:ml-[20px]">
+
                 <Link href={`/products/${item.product.id}`}>
                   <Typography>{item.product.name}</Typography>
                 </Link>
+
                   <div className="items-center pt-10 md:flex">
                   <div>Price: ${(item.product.price / 100).toFixed(2)}</div>
                   {/* Add any other details you want to display */}
                 </div>
               </div>
               </div>
+              
               <Button
                 onClick={() => handleDeleteFromWishlist(userId, item.product.id)}
 

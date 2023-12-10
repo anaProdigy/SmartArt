@@ -2,8 +2,7 @@ import Link from 'next/link';
 import prisma from 'utils/prisma';
 import formatDate from 'utils/formatDate';
 import formatPriceAlt from 'utils/formatPriceAlt';
-import Layout from '../../components/Layout';
-import UserLayout from '@/components/User/UserLayout';
+
 
 import { Typography, Container, Paper, Button } from '@mui/material';
 
@@ -26,8 +25,7 @@ const OrdersHistoryList = ({ userOrders }) => {
   };
 
   return (
-    // <Layout>
-    // <UserLayout>
+
     <Container className="px-32 flex flex-col pt-4">
       {userOrders.length === 0 ? (
 
@@ -124,8 +122,6 @@ const OrdersHistoryList = ({ userOrders }) => {
         </div>
       )}
     </Container>
-    // </UserLayout>
-    // </Layout>
   );
 
 };

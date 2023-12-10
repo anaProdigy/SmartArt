@@ -7,8 +7,7 @@ import axios from 'axios';
 import prisma from 'utils/prisma';
 
 import Cart from '../components/Cart';
-import Layout from '../components/Layout';
-import UserLayout from '@/components/User/UserLayout';
+
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:3000';
 
@@ -36,16 +35,9 @@ const applyDiscountToProduct = async (productId, productPrice) => {
 
 export default function CartPage({ productDetails, subtotal }) {
     return (
-      // <Layout>
-        // <UserLayout>
         <Cart productDetails={productDetails} subtotal={subtotal} />
-        // </UserLayout>
-      // </Layout>
     );
   }
-
-
-
 
 
 export async function getServerSideProps({ req }) {
