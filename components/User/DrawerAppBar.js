@@ -32,7 +32,7 @@ function DrawerAppBar(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const router = useRouter();
   const { user } = useUser();
-
+console.log('user', user)
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
