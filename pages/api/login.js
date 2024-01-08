@@ -13,7 +13,7 @@ export default async function handler(req, res) {
           id: true,
         },
       });
-      //console.log("customer login", customer)
+    
       // if (customer) {
         const admin = await prisma.admin.findUnique({
           where: {

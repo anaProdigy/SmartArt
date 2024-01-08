@@ -125,7 +125,18 @@ const Wishlist = ({ serializedWishlistData: defaultWishlistData }) => {
                 </Link>
 
                   <div className="items-center pt-10 md:flex">
-                  <div>Price: ${(item.product.price / 100).toFixed(2)}</div>
+                    <div style={{  paddingRight: '10px' }}>Price: </div>
+                    {item.product.price !== item.product.discountedPrice ? (
+                      <div style={{ display: 'flex', flexDirection: 'row', paddingLeft:'10px' }}>
+                        <div style={{ textDecoration: 'line-through', color: '#7D0012', paddingRight: '10px' }}>
+                          ${(item.product.price / 100).toFixed(2)}
+                        </div>
+                        <div>
+                          ${(item.product.discountedPrice / 100).toFixed(2)}
+                        </div>
+                      </div>
+                    ) : (`$${(item.product.price / 100).toFixed(2)}`)}
+
                   {/* Add any other details you want to display */}
                 </div>
               </div>
