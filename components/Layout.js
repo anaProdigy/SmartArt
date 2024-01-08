@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
       </div>
     );
   }
-
+  console.log("USER Layout", user)
   if (error) return <div>{error.message}</div>;
 
   if (user) {
@@ -46,7 +46,6 @@ const Layout = ({ children }) => {
         )}
         {children}
         <Footer />
-
       </>
     );
   }

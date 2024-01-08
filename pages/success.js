@@ -12,17 +12,21 @@ const Success = () => {
   const router = useRouter();
   const { session_id } = router.query;
   const [orderDetails, setOrderDetails] = useState(null);
-
+  const [isLoading, setIsLoading] = useState(true);
   const userId = useSessionId();
   // const userId = 3; 
-
+  console.log("userId success", userId)
 
 
   useEffect(() => {
+    console.log("userId sucess 22", userId)
     if (session_id) {
+
+      setIsLoading(true);
       // Fetch order details based on the session ID
       const fetchOrderDetails = async () => {
         try {
+          //issue is here
           const response = await axios.get(`/api/success?session_id=${session_id}&userId=${userId}`);
           if (response.status === 200) {
             setOrderDetails(response.data);
@@ -30,20 +34,28 @@ const Success = () => {
           }
         } catch (error) {
           console.error('Error fetching order details', error);
+        } finally {
+          setIsLoading(false);
         }
       };
 
-      fetchOrderDetails();
+      if (session_id && userId !== null) {
+        fetchOrderDetails();
+      }
       
     }
-  }, [session_id]);
+  }, [session_id, userId]);
 
-  if (!orderDetails) {
+  if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <CircularProgress />
       </div>
     );
+  }
+
+  if (!orderDetails) {
+    return <div>No order details available.</div>;
   }
   console.log("orderDetails.order.id", orderDetails.order.id)
   // Check if payment was successful
@@ -57,7 +69,7 @@ const Success = () => {
 
           <Card className="p-4 border border-gray-300 rounded shadow-md">
             <p className="mb-4">
-              Your Order # <strong>{orderDetails.orderDetailsSession.orderNumber}</strong>
+              Your Order # <strong>{orderDetails.order.id}</strong>
             </p>
             <p>
               Total Price: <strong>{orderDetails.orderDetailsSession.totalPrice} CAD</strong>

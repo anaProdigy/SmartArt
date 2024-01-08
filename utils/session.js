@@ -10,13 +10,14 @@ const setSession = async (user) => {
     body: JSON.stringify(user.email),
     headers:
       { 'Content-Type': 'application/json' }
-  }).then(res => res.json()).then(customerId => {
+  }).then(res => res.json()).then(customer => {
+    //console.log("customer session", customer)
 
     if (typeof window !== 'undefined') {
       // window.sessionStorage.setItem('sessionId', customerId);
       //  window.sessionStorage.getItem('sessionId');
-      document.cookie = `sessionId=${customerId.customerId}; path = /`;
-      if (customerId.adminAccount) {
+      document.cookie = `sessionId=${customer.customerId}; path = /`;
+      if (customer.adminAccount) {
         document.cookie = `${adminCookieKey}=true; path = /`;
       }
     }
@@ -43,7 +44,10 @@ const useSessionId = () => {
     // If there is a cookie, set the sessionIdValue to the value of the cookie else set it to null
     const sessionIdValue = sessionIdCookie ? sessionIdCookie.split('=')[1] : null;
     setSessionId(sessionIdValue);
+   
   }, []);
+
+
 
   return Number(sessionId);
 };

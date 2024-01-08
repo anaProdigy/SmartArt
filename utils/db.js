@@ -9,6 +9,8 @@ const createUser = async(cust) => {
       email: cust.email,
     },
   });
+
+  
   if (!user) {
     try {
       const customer = await stripe.customers.create({

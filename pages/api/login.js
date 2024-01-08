@@ -2,7 +2,7 @@ import prisma from "utils/prisma";
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    let adminAccount = false;
+    //let adminAccount = false;
 
     try {
       const customer = await prisma.customer.findUnique({
@@ -13,21 +13,21 @@ export default async function handler(req, res) {
           id: true,
         },
       });
-
-      if (customer) {
+      //console.log("customer login", customer)
+      // if (customer) {
         const admin = await prisma.admin.findUnique({
           where: {
             email: req.body,
           },
         });
     
-        if (admin) {
-          adminAccount = true;
-        }
-      }
+        // if (admin) {
+        //   adminAccount = true;
+        // }
+      // }
     
       await prisma.$disconnect();
-      res.status(201).json({ customerId: customer.id, adminAccount });
+      res.status(201).json({ customerId: customer.id, adminAccount: admin ? true : false });
      // return customer.id;
       
     } catch (error) {

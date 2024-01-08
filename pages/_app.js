@@ -6,7 +6,6 @@ import { SearchState } from 'utils/search';
 import { WishlistProvider } from 'utils/wishlistContext';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { ToastContainer } from 'react-toastify';
-import MobileMessage from '../components/MobileMessage'
 import Layout from '@/components/Layout';
 
 export default function App({ Component, pageProps }) {
@@ -32,7 +31,6 @@ export default function App({ Component, pageProps }) {
       <UserProvider>
         <WishlistProvider>
           <Layout>
-            {/* {isMobileOrTablet ? <MobileMessage /> : <Component {...pageProps} />} */}
             <Component {...pageProps} />
             <ToastContainer />
           </Layout>
