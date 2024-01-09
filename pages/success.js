@@ -57,16 +57,16 @@ const Success = () => {
   if (!orderDetails) {
     return <div>No order details available.</div>;
   }
-  console.log("orderDetails.order.id", orderDetails.order.id)
+  //console.log("orderDetails.order.id", orderDetails.order.id)
   // Check if payment was successful
   const paymentSuccessful = orderDetails.orderDetailsSession.paymentStatus === 'paid';
 
   return (
-    <div className="container mx-auto mt-8 " style={{width:"700px"}}>
+    <div className="container mx-auto mt-8 md:w-1/2 px-10 pb-20">
       {paymentSuccessful ? (
         <>
-          <h1 className="text-3xl text-green-500 mb-4">Payment Successful! Thank you for your order!</h1>
-
+          <h1 className="text-xl text-center md:text-3xl text-green-500 mb-4">Payment Successful! </h1>
+          <h1 className="text-xl text-center md:text-3xl text-green-500 mb-4"> Thank you for your order!</h1>
           <Card className="p-4 border border-gray-300 rounded shadow-md">
             <p className="mb-4">
               Your Order # <strong>{orderDetails.order.id}</strong>
@@ -92,10 +92,16 @@ const Success = () => {
               <Link href={`/orders/${orderDetails.order.id}`}>
                 <Button size="small"
                   variant="contained"
-                  style={{
-                    backgroundColor: 'lightblue', color: 'white', transition: 'background-color 0.3s',
+                  sx={{
+                    backgroundColor: '#1E2E2D',
+                    color: 'white', // Text color
+                    transition: 'background-color 0.3s',
+                    fontSize: ['0.5rem', '0.6rem', '0.9rem'],
+
                     '&:hover': {
-                      backgroundColor: 'blue',
+                      backgroundColor: '#32434e',
+                      width: '200px',
+                      color: 'white',
                     },
                   }}
                 >
@@ -105,10 +111,16 @@ const Success = () => {
               <Link href={`/products/`}>
                 <Button size="small"
                   variant="contained"
-                  style={{
-                    backgroundColor: 'lightblue', color: 'white', transition: 'background-color 0.3s',
+                  sx={{
+                    backgroundColor: '#1E2E2D',
+                    color: 'white', // Text color
+                    transition: 'background-color 0.3s',
+                    fontSize: ['0.5rem', '0.6rem', '0.9rem'],
+
                     '&:hover': {
-                      backgroundColor: 'blue',
+                      backgroundColor: '#32434e',
+                      width: '200px',
+                      color: 'white',
                     },
                   }}
                 >
